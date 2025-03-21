@@ -161,9 +161,9 @@ The API implements comprehensive error handling:
    - 100 requests per 15 minutes per IP
 
 2. Security Headers (via Helmet)
-   - XSS Protection
-   - Prevention of clickjacking
-   - Strict Transport Security
+   - XSS Protection (Enabled explicitly)
+   - Prevention of clickjacking (Frameguard set to 'deny')
+   - Strict Transport Security (HSTS with maxAge of 1 year and subdomains included)
 
 3. Input Validation
    - Email format validation

@@ -10,7 +10,11 @@ app.use(express.json());
 app.use("/api", authroutes);
 
 // Security middlewares
-app.use(helmet()); // Adds various HTTP headers for security
+app.use(helmet({
+    xssFilter: true, // Enable XSS Protection
+    frameguard: { action: 'deny' }, // Prevent clickjacking
+    hsts: { maxAge: 31536000, includeSubDomains: true } // Enable Strict Transport Security
+}));
 
 // Rate limiting
 const limiter = rateLimit({
